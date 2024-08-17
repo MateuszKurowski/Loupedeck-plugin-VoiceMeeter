@@ -26,9 +26,9 @@ namespace Loupedeck.VoiceMeeterPlugin.Helper
 
     public static class ColorHelper
     {
-        public static SKColor Inactive => new SKColor(59, 75, 85);
-        public static SKColor Active => new SKColor(82, 144, 112);
-        public static SKColor Danger => new SKColor(196, 78, 61);
+        public static SKColor Inactive => new SKColor(25, 25, 25);
+        public static SKColor Active => new SKColor(0, 77, 0);
+        public static SKColor Danger => new SKColor(99, 0, 0);
         public static SKColor SelActive => new SKColor(203, 174, 130);
     }
 }

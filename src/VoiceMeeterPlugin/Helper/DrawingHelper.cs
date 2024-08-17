@@ -136,40 +136,33 @@
             // Prepare variables
             var dim = imageSize.GetDimension();
             var percentage = (currentValue - minValue) / (maxValue - minValue) * 100;
-            var height = (Int32)(dim * 1.0);
-            var width = (Int32)(dim * 0.7);
+            var height = (Int32)(dim * 0.7);
+            var width = (Int32)(dim * 1);
             var calculatedHeight = (Int32)(height * percentage / 100);
             var xCenter = dim / 2 - width / 2;
-            var yCenter = dim / 2 + height / 2;
+            var yCenter = dim / 2 + height / 2 + 4;
             var builder = new BitmapBuilder(dim, dim);
-            
+
             // Reset to black
             builder.Clear(BitmapColor.Black);
-            
+
             // Draw volume bar and border
             builder.DrawRectangle(xCenter, yCenter, width, -height, backgroundColor);
             builder.FillRectangle(xCenter, yCenter, width, -calculatedHeight, backgroundColor);
-            
+
             // Draw value text at the center
-            builder.DrawText((currentValue / scaleFactor).ToString(CultureInfo.CurrentCulture), foregroundColor);
-            
-            const Int32 fontSize = 16;
+            var dbText = (currentValue / scaleFactor).ToString(CultureInfo.CurrentCulture);
 
-            var cmdSize = GetFontSize(fontSize, cmd, dim);
-            
-            // Draw cmd text at the bottom
-            builder.DrawText(cmd, 0, dim / 2 - cmdSize / 2, dim, dim, foregroundColor, cmdSize, 0, 0);
+            builder.DrawText(dbText, foregroundColor, fontSize: 18);
 
-            // if name is available, draw it over the volume bar
-            if (String.IsNullOrEmpty(name))
+            const Int32 fontSize = 12;
+
+            if (!String.IsNullOrEmpty(name))
             {
-                return builder.ToImage();
+                var nameSize = GetFontSize(fontSize, name, dim);
+                // draw the text using the calculated font size
+                builder.DrawText(name, 0, -dim / 2 + 5, dim, dim, foregroundColor, nameSize, 0, 0);
             }
-
-            var nameSize = GetFontSize(fontSize, name, dim);
-
-            // draw the text using the calculated font size
-            builder.DrawText(name, 0, dim / 2 * -1 + nameSize / 2, dim, dim, foregroundColor, nameSize, 0, 0);
 
             return builder.ToImage();
         }

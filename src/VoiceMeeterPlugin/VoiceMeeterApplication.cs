@@ -20,6 +20,6 @@ namespace Loupedeck.VoiceMeeterPlugin
         public override ClientApplicationStatus GetApplicationStatus() => ClientApplicationStatus.Unknown;
 
         protected override Boolean IsProcessNameSupported(String processName) =>
-            processName.ContainsNoCase("VB-AUDIO Virtual Audi Device") || processName.ContainsNoCase("VoiceMeeter");
+            processName.ContainsNoCase("VB-AUDIO Virtual Audi Device") || processName.ContainsNoCase("VoiceMeeterMK");
     }
 }
