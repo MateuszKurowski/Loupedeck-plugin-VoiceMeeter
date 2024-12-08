@@ -1,6 +1,6 @@
 type: plugin4
-name: VoiceMeeter
-displayName: VoiceMeeter
+name: VoiceMeeterMK
+displayName: VoiceMeeterMK
 description: Control your VoiceMeeter audio mixer with your Loupedeck device.
 pluginFileName: VoiceMeeterPlugin.dll
 version: 4.0.1

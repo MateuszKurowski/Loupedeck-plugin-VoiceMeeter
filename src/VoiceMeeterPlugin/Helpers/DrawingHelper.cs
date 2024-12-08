@@ -69,11 +69,11 @@
         {
             var dim = imageSize.GetDimension();
             var percentage = (currentValue - minValue) / (maxValue - minValue);
-            var height = (Int32)(dim * 0.9);
-            var width = (Int32)(dim * 0.6);
+            var height = (Int32)(dim * 0.7);
+            var width = (Int32)(dim * 1);
             var calculatedHeight = (Int32)(height * percentage);
             var xCenter = dim / 2 - width / 2;
-            var yCenter = dim / 2 + height / 2;
+            var yCenter = dim / 2 + height / 2 + 4;
             using var builder = new BitmapBuilder(dim, dim);
 
             builder.Clear(BitmapColor.Black);
