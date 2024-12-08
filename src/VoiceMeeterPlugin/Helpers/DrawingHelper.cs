@@ -85,8 +85,8 @@
                 builder.DrawText((currentValue / scaleFactor).ToString(CultureInfo.CurrentCulture), foregroundColor);
             }
 
-            var cmdSize = GetOptimalFontSize(cmd, dim: dim);
-            builder.DrawText(cmd, 0, dim / 2 - cmdSize / 2, dim, dim, foregroundColor, cmdSize, 0, 0);
+            //var cmdSize = GetOptimalFontSize(cmd, dim: dim);
+            //builder.DrawText(cmd, 0, dim / 2 - cmdSize / 2, dim, dim, foregroundColor, cmdSize, 0, 0);
 
             if (String.IsNullOrWhiteSpace(name))
             {
